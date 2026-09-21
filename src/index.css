@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Glassmorphism Styles for Dark & Light Themes */
+.glass-panel-ember,
+.glass-panel-obsidian {
+  background: rgba(20, 20, 25, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 107, 0, 0.15);
+}
+
+.glass-panel-dawn {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 107, 0, 0.2);
+}
+
+/* High-Contrast Dropdown Visibility Fix */
+.dropdown-dark select,
+.dropdown-dark option {
+  background-color: #0F0F14 !important;
+  color: #FFFFFF !important;
+}
+
+.dropdown-light select,
+.dropdown-light option {
+  background-color: #FFFFFF !important;
+  color: #1C1917 !important;
+}
+
+/* Custom Primary Button Shadow */
+.btn-primary-orange {
+  background-color: #FF6B00;
+  color: #FFFFFF;
+  box-shadow: 0 4px 24px rgba(255, 107, 0, 0.4);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary-orange:hover {
+  background-color: #FF7A1A;
+  box-shadow: 0 8px 32px rgba(255, 107, 0, 0.55);
+  transform: translateY(-2px);
+}
+
+.btn-primary-orange:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 107, 0, 0.25);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 107, 0, 0.5);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Dynamic Smooth Floating & Glowing Animations */
+@keyframes floatLogo {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    box-shadow: 0 10px 25px -5px rgba(255, 107, 0, 0.35);
+  }
+  50% {
+    transform: translateY(-4px) rotate(1.5deg);
+    box-shadow: 0 18px 35px -5px rgba(255, 107, 0, 0.6);
+  }
+}
+
+.animate-float-logo {
+  animation: floatLogo 4s ease-in-out infinite;
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 18s linear infinite;
+}
+
+@keyframes pulseGlowIcon {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(52, 211, 153, 0.7));
+  }
+}
+
+.animate-pulse-glow-icon {
+  animation: pulseGlowIcon 2.4s ease-in-out infinite;
+}
+
+@keyframes flameFlicker {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.5));
+  }
+  50% {
+    transform: translateY(-2px) scale(1.12);
+    filter: drop-shadow(0 0 10px rgba(255, 107, 0, 0.8));
+  }
+}
+
+.animate-flame-flicker {
+  animation: flameFlicker 2s ease-in-out infinite;
+}
+
+/* MindAnchor Dynamic Logo Animations */
+@keyframes logoPulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(255, 107, 0, 0.4), 0 4px 12px rgba(255, 107, 0, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 136, 0, 0.7), 0 6px 16px rgba(255, 107, 0, 0.35);
+  }
+}
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-2.5px);
+  }
+}
+
+@keyframes logoOrbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-logo-pulse {
+  animation: logoPulseGlow 3.5s ease-in-out infinite, logoFloat 4s ease-in-out infinite;
+  will-change: transform, box-shadow;
+}
+
+.animate-logo-orbit {
+  animation: logoOrbit 14s linear infinite;
+  will-change: transform;
+}
